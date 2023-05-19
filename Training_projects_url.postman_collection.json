@@ -1,0 +1,215 @@
+{
+	"info": {
+		"_postman_id": "2cbc44db-f826-4407-9770-b190fb470c66",
+		"name": "Training_projects_url",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:9000/v1/test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9000/v1/test",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"v1",
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "account ms endpoint",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/account/balance",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"account",
+						"balance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "wallet ms endpoint",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9091/wallet/fetchBalance",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"wallet",
+						"fetchBalance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "circuit breaker status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9091/actuator/health",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"actuator",
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "account ms through wallet ms using api gateway",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5555/api/wallet-app/wallet/fetchBalance",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"api",
+						"wallet-app",
+						"wallet",
+						"fetchBalance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "account ms through api gateway",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5555/api/account-app/account/balance",
+					"host": [
+						"localhost"
+					],
+					"port": "5555",
+					"path": [
+						"api",
+						"account-app",
+						"account",
+						"balance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "authentication service endpoint for gettting token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "secretpassword",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "my-client",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "bruce",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "bruce123",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "web",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:7777/oauth/token",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "protected resource",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2ODQ1NDIwNzEsInVzZXJfbmFtZSI6ImFsZXgiLCJhdXRob3JpdGllcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sImp0aSI6ImRjYmZhOWYxLTQxMzYtNDE1Mi1hNGM5LWI4YjA4ZDM1YjRhMyIsImNsaWVudF9pZCI6Im15LWNsaWVudCIsInNjb3BlIjpbIndlYiJdfQ.dNFE3EE_HXzLQK-_ZUrlTVwnjPf6rik6wgNs8j_k0NA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:7071/myresources",
+					"host": [
+						"localhost"
+					],
+					"port": "7071",
+					"path": [
+						"myresources"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
